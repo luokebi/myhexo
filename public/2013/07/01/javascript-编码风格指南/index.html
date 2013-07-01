@@ -1,0 +1,634 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>JavaScript 编码风格指南 | LUO's 博客</title>
+  <meta name="author" content="luo">
+  
+  <meta name="description" content="&emsp;这几天一直在读这本《编写可维护的JavaScript》
+,觉得编码风格对于一个长期维护的软件而言是非常的重要的。下面我就列举一下书中建议的一些规范(下面的写法均为推荐写法)。
+缩进
+每一行由四个空格组成,避免使用Tab进行缩进。
+1
+2
+3
+if (true) {
+    doSomething();
+}
+
+
+行的长度
+每行不应超过80个字符。如果一行多于80个字符，应当在一个运算符后换行。下一行增加两级缩进（8个字符）
+1
+2
+doSomething(argument1, argument2, argument3, argument4,
+        argument5);">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="JavaScript 编码风格指南"/>
+  <meta property="og:site_name" content="LUO's 博客"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  <link href="/favicon.ico" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="LUO's 博客" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+  
+</head>
+
+
+<body>
+  <header id="header" class="inner"><div class="alignleft">
+  <h1><a href="/">LUO's 博客</a></h1>
+  <h2><a href="/"></a></h2>
+</div>
+<nav id="main-nav" class="alignright">
+  <ul>
+    
+      <li><a href="/">首页</a></li>
+    
+      <li><a href="/archives">归档</a></li>
+    
+  </ul>
+  <div class="clearfix"></div>
+</nav>
+<div class="clearfix"></div></header>
+  <div id="content" class="inner">
+    <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2013-07-01T12:48:51.000Z"><a href="/2013/07/01/javascript-编码风格指南/">2013年7月1日</a></time>
+      
+      
+  
+    <h1 class="title">JavaScript 编码风格指南</h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p><img src="/img/maintainableJavascript.jpg" alt=""></p>
+<p>&emsp;这几天一直在读这本<a href="http://book.douban.com/subject/21792530/">《编写可维护的JavaScript》</a>
+,觉得编码风格对于一个长期维护的软件而言是非常的重要的。下面我就列举一下书中建议的一些规范(下面的写法均为推荐写法)。</p>
+<h2>缩进</h2>
+<p>每一行由四个空格组成,避免使用Tab进行缩进。</p>
+<figure class="highlight lang-javascript"><table><tr><td class="gutter"><pre>1
+2
+3
+</pre></td><td class="code"><pre><span class="keyword">if</span> (<span class="literal">true</span>) {
+    doSomething();
+}
+</pre></td></tr></table></figure>
+
+<h2>行的长度</h2>
+<p>每行不应超过80个字符。如果一行多于80个字符，应当在一个运算符后换行。下一行增加两级缩进（8个字符）</p>
+<figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
+2
+</pre></td><td class="code"><pre>doSomething(argument1, argument2, argument3, argument4,
+        argument5);
+</pre></td></tr></table></figure>
+
+<p><a name="more"></a></p>
+<h2>原始值</h2>
+<p>字符串应当始终使用双引号且保持一行</p>
+<figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre><span class="keyword">var</span> name = <span class="string">"Nicholas"</span>;
+</pre></td></tr></table></figure>
+
+<p>数字应当使用十进制证书，科学技术法表示整数，十六进制证书，或者十进制浮点小数，小数点前后应当至少保留以为数字。避免使用八进制直接量。</p>
+<figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+</pre></td><td class="code"><pre><span class="keyword">var</span> count = <span class="number">10</span>;
+
+<span class="keyword">var</span> price = <span class="number">10.0</span>;
+<span class="keyword">var</span> price = <span class="number">10.00</span>;
+
+<span class="keyword">var</span> num = <span class="number">0xA2</span>;
+
+<span class="keyword">var</span> num = <span class="number">1e23</span>;
+</pre></td></tr></table></figure>
+
+<h2>运算符间距</h2>
+<p>二元运算符前后必须使用一个空格来保持表达式的整洁。操作符包括赋值运算符和逻辑运算符。</p>
+<figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+</pre></td><td class="code"><pre><span class="keyword">var</span> found = (values[i] === item);
+
+<span class="keyword">if</span> (found && (count &gt; <span class="number">10</span>)) {
+    doSomething();
+} 
+
+<span class="keyword">for</span> (i = <span class="number">0</span>; <span class="number">1</span> &lt; count; i++) {
+    process(i);
+}
+</pre></td></tr></table></figure>
+
+<h2>括号间距</h2>
+<p>当使用括号时，紧接左括号之后和紧接右括号之间不应该有空格。</p>
+<figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+</pre></td><td class="code"><pre><span class="keyword">var</span> found = (values[i] === item);
+
+<span class="keyword">if</span> (found && (count &gt; <span class="number">10</span>)) {
+    doSomething();
+} 
+
+<span class="keyword">for</span> (i = <span class="number">0</span>; <span class="number">1</span> &lt; count; i++) {
+    process(i);
+}
+</pre></td></tr></table></figure>
+
+<h2>对象直接量</h2>
+<ul>
+<li>起始左花括号应当与表达式同一行</li>
+<li>每个属性的名值应该保持一个缩进，每一个属性应当在左花括号后另起一行</li>
+<li>不含引号的属性名</li>
+<li>倘若属性值是函数类型，函数体应当在属性名之下另起一行，而且其前后均保留一个空行</li>
+<li>一组相关属性前后可插入空行以提升代码的可读性</li>
+<li>结束右花括号应该独占一行<figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+</pre></td><td class="code"><pre><span class="keyword">var</span> object = {
+    key1: value1,
+    key2: value2,
+
+    func: <span class="keyword">function</span>() {
+        <span class="comment">// do something</span>
+    },
+
+    key3: value3
+};
+</pre></td></tr></table></figure>
+
+</li>
+</ul>
+<p>但贵姓字面量作为函数参数时：</p>
+<figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+</pre></td><td class="code"><pre>doSomething({
+    key1: value1,
+    key2: value2
+});
+</pre></td></tr></table></figure>
+
+<h2>注释</h2>
+<h3>单行注释</h3>
+<ul>
+<li>单行注释前有一空行</li>
+<li>“//”与文字之间有一个空格<figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+</pre></td><td class="code"><pre><span class="keyword">if</span> (condition) {
+    
+    <span class="comment">// comments here</span>
+    allowed();
+}
+</pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h3>多行注释</h3>
+<ul>
+<li>首行以/*开始，不包含其他文字</li>
+<li>接下来的行以*开头，这些行可以有文字</li>
+<li>最后一行以*/开头，同样不包含其他文字</li>
+<li>每个多行注释前也有一个空行<figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+</pre></td><td class="code"><pre><span class="keyword">if</span> (condition) {
+    
+    <span class="comment">/*
+    * comment here
+    * comment here
+    */</span>
+    allowed();
+}
+</pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h2>注释声明</h2>
+<figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+</pre></td><td class="code"><pre><span class="comment">// TODO: 我希望找到一种更快的方式</span>
+doSomething();
+
+<span class="comment">/*
+* HACK: something ..,
+* something....
+*/</span>
+<span class="keyword">if</span> (document.all) {
+    doSomething();
+}
+
+<span class="comment">// REVIEW: 有更好的方法吗？</span>
+<span class="keyword">if</span> (document.all) {
+    doSomething();
+}
+</pre></td></tr></table></figure>
+
+<h2>变量声明</h2>
+<p>所有的变量声明都应该在使用前先定义。变量定义应该放在函数的开头。使用单var模式的表达式。未初始化的变量应放在最后。</p>
+<figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+</pre></td><td class="code"><pre><span class="keyword">var</span> count = <span class="number">10</span>,
+    name = <span class="string">"Nicholas"</span>,
+    fount = <span class="literal">false</span>,
+    empty;
+</pre></td></tr></table></figure>
+
+<h2>函数声明</h2>
+<p>函数也应当使用之前定义。一个不是作为方法的函数应当使用函数定义的格式。函数名和开始圆括号之间不应当有空格。结束圆括号和右边的花括号之间应该有一个空格。参数名之间应该在都好之后保留一个空格。</p>
+<figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
+2
+3
+</pre></td><td class="code"><pre><span class="function"><span class="keyword">function</span> <span class="title">doSomething</span><span class="params">(arg1, arg2)</span> {</span>
+    <span class="keyword">return</span> arg1 + arg2;
+}
+</pre></td></tr></table></figure>
+
+<p>匿名函数可能作为方法赋值给对象，或者作为其他函数的参数。funtion关键字与开始圆括号之间不应该有空格。</p>
+<figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+</pre></td><td class="code"><pre>object.method = <span class="keyword">function</span>() {
+
+    <span class="comment">// code here</span>
+}
+</pre></td></tr></table></figure>
+
+<p>立即执行函数应该在行数调用的外层用圆括号包裹。</p>
+<figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+</pre></td><td class="code"><pre><span class="keyword">var</span> value = (<span class="keyword">function</span>(){
+	
+    <span class="comment">// 函数体</span>
+    <span class="keyword">return</span> {
+        message: <span class="string">"Hi"</span>
+    }
+}());
+</pre></td></tr></table></figure>
+
+<h2>命名</h2>
+<p>推荐采用驼峰式命名</p>
+<figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+</pre></td><td class="code"><pre><span class="keyword">var</span> accountNumber = <span class="string">"8401-1"</span>;
+
+<span class="function"><span class="keyword">function</span> <span class="title">doSomething</span><span class="params">()</span> {</span>
+	
+	<span class="comment">// code here</span>
+}
+</pre></td></tr></table></figure>
+
+<p>构造函数</p>
+<figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+</pre></td><td class="code"><pre><span class="function"><span class="keyword">function</span> <span class="title">myObject</span><span class="params">()</span> {</span>
+	
+	<span class="comment">// code here</span>
+}
+</pre></td></tr></table></figure>
+
+<p>常量命名应当是所有字母大写，不同单词之间使用下划线隔开。</p>
+<figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre><span class="keyword">var</span> TOTAL_COUNT = <span class="number">10</span>;
+</pre></td></tr></table></figure>
+
+<p>对象的属性同变量命名规则相同，方法与函数规则相同。如果属性或者方法是私有的，应该在其前面加一个下划线。</p>
+<figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+</pre></td><td class="code"><pre><span class="keyword">var</span> object = {
+    _count: <span class="number">10</span>,
+
+    _getCount: <span class="keyword">function</span>() {
+        <span class="keyword">return</span> <span class="keyword">this</span>._count;
+    }
+}
+</pre></td></tr></table></figure>
+
+<h2>赋值</h2>
+<p>当变量赋值时，如果右边为表达式，需要用圆括号包裹起来。</p>
+<figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre><span class="keyword">var</span> flag = (i &lt; count);
+</pre></td></tr></table></figure>
+
+<h2>三元操作符</h2>
+<p>三元操作符应当仅仅用在条件赋值语句中，而不要作为if的代替品。</p>
+<figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre><span class="keyword">var</span> value = condition ? value1 : value2;
+</pre></td></tr></table></figure>
+
+<h2>语句</h2>
+<h3>if语句</h3>
+<p>决不允许省略花括号</p>
+<figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+</pre></td><td class="code"><pre><span class="keyword">if</span> (condition) {
+    statements
+}
+
+<span class="keyword">if</span> (condition) {
+	statements
+} <span class="keyword">else</span> {
+    statements
+}
+
+<span class="keyword">if</span> (condition) {
+    statements
+} <span class="keyword">else</span> <span class="keyword">if</span> (condititon) {
+    statements
+} <span class="keyword">else</span> {
+    statements
+}
+</pre></td></tr></table></figure>
+
+<h3>for语句</h3>
+<p>for语句的初始化不应该有变量声明</p>
+<figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+</pre></td><td class="code"><pre><span class="keyword">var</span> i,
+    len;
+
+<span class="keyword">for</span> (i = <span class="number">0</span>, len = <span class="number">10</span>; i &lt; len; i++) {
+	
+	<span class="comment">// code here</span>
+}
+</pre></td></tr></table></figure>
+
+<h3>while 语句</h3>
+<figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
+2
+3
+</pre></td><td class="code"><pre><span class="keyword">while</span> (condition) {
+    statements
+}
+</pre></td></tr></table></figure>
+
+<h3>do while语句</h3>
+<figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
+2
+3
+</pre></td><td class="code"><pre><span class="keyword">do</span> {
+    statements
+} <span class="keyword">while</span> (condition)
+</pre></td></tr></table></figure>
+
+<h3>switch语句</h3>
+<figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+</pre></td><td class="code"><pre><span class="keyword">switch</span> (expression) {
+    <span class="keyword">case</span> expression:
+        statements
+
+    <span class="keyword">case</span> expression:
+        statements
+
+    <span class="keyword">default</span>:
+        statements
+}
+</pre></td></tr></table></figure>
+
+<p>如果没有default,应该使用一行注释代替。</p>
+<figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+</pre></td><td class="code"><pre><span class="keyword">switch</span> (expression) {
+    <span class="keyword">case</span> expression:
+        statements
+
+    <span class="keyword">case</span> expression:
+        statements
+
+    <span class="comment">// no default</span>
+}
+</pre></td></tr></table></figure>
+
+<h3>try语句</h3>
+<figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+</pre></td><td class="code"><pre><span class="keyword">try</span> {
+    statements
+} <span class="keyword">catch</span> (variable) {
+    statements
+} <span class="keyword">finally</span> {
+    statements
+}
+</pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <footer>
+      
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/javascript/">javascript</a>, <a href="/tags/编码风格/">编码风格</a>
+  </div>
+
+        
+  <div class="addthis addthis_toolbox addthis_default_style">
+    
+    
+    
+      <a class="addthis_button_google_plusone" g:plusone:size="medium"></a>
+    
+    
+    <a class="addthis_counter addthis_pill_style"></a>
+  </div>
+  <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js"></script>
+
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+<section id="comment">
+  <h1 class="title">留言</h1>
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+</div></div>
+    <aside id="sidebar" class="alignright">
+  <div class="search">
+  <form action="//google.com/search" method="get" accept-charset="utf-8">
+    <input type="search" name="q" results="0" placeholder="搜索">
+    <input type="hidden" name="q" value="site:yoursite.com">
+  </form>
+</div>
+
+  
+
+  
+<div class="widget tag">
+  <h3 class="title">标签</h3>
+  <ul class="entry">
+  
+    <li><a href="/tags/hellp-world/">hellp world</a><small>1</small></li>
+  
+    <li><a href="/tags/javascript/">javascript</a><small>1</small></li>
+  
+    <li><a href="/tags/编码风格/">编码风格</a><small>1</small></li>
+  
+  </ul>
+</div>
+
+</aside>
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer" class="inner"><div class="alignleft">
+  
+  &copy; 2013 luo
+  
+</div>
+<div class="clearfix"></div></footer>
+  <script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+<script type="text/javascript">
+var disqus_shortname = 'luoblog';
+
+(function(){
+  var dsq = document.createElement('script');
+  dsq.type = 'text/javascript';
+  dsq.async = true;
+  dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+}());
+</script>
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+</body>
+</html>
