@@ -5,13 +5,24 @@
   <meta name="baidu-site-verification" content="Hyfh5EEKyG" />
   <meta charset="utf-8">
   
-  <title>归档：2013/7 | LUO's 博客</title>
+  <title>关于null &gt;= 0 | LUO's 博客</title>
   <meta name="author" content="luo">
+  
+  <meta name="description" content="前两天看大神们在讨论一个问题,这个问题是这样的:
+1
+2
+3
+null &gt; 0// false 
+null == 0// false 
+null &gt;= 0//true
+
+
+为什么会这样呢?">
   
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  
+  <meta property="og:title" content="关于null &gt;= 0"/>
   <meta property="og:site_name" content="LUO's 博客"/>
 
   
@@ -44,12 +55,7 @@
 </nav>
 <div class="clearfix"></div></header>
   <div id="content" class="inner">
-    <div id="main-col" class="alignleft"><div id="wrapper">
-<h2 class="archive-title">2013/7</h2>
-
-
-  
-    <article class="post">
+    <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
   
   <div class="post-content">
     <header>
@@ -59,7 +65,7 @@
       
       
   
-    <h1 class="title"><a href="/2013/07/04/关于null--0/">关于null &gt;= 0</a></h1>
+    <h1 class="title">关于null &gt;= 0</h1>
   
 
     </header>
@@ -75,6 +81,27 @@
 </pre></td></tr></table></figure>
 
 <p>为什么会这样呢? <br/>
+<a name="more"></a></p>
+<h3>总结如下：</h3>
+<p>他们查阅了ES3和ES5对于关系运算符 &quot;&gt;&quot; , &quot;&lt;&quot;, &quot;&gt;=&quot;, &quot;&lt;=&quot; 以及相等运算符的实现：</p>
+<ol>
+<li>&quot;&gt;=&quot; 和 &quot;&gt;&quot; 属于关系运算符</li>
+<li>&quot;==&quot; 属于相等运算符</li>
+<li>关系运算符和相等运算符不是一类，实现算法不相同</li>
+<li>关系运算符总是将运算元尝试转化成number,然后再进行比较，而相等运算符则没有类型转化这个过程</li>
+</ol>
+<h3>再看上面那个问题:</h3>
+<figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
+2
+3
+</pre></td><td class="code"><pre><span class="literal">null</span> &gt; <span class="number">0</span> <span class="comment">// null转化为number类型，相当于+null的值，为0，所以为false</span>
+<span class="literal">null</span> &gt;= <span class="number">0</span> <span class="comment">// 通上，0 &gt;= 0,为true</span>
+<span class="literal">null</span> == <span class="number">0</span> <span class="comment">// 没有类型转化，所以为false</span>
+</pre></td></tr></table></figure>
+
+<p>这样就解释了为什么是这个结果。</p>
+<p>大神更详细的分析以及与javascript作者的讨论:  <br/>
+<a href="http://www.cnblogs.com/_franky/archive/2012/09/26/2703723.html"><a href="http://www.cnblogs.com/_franky/archive/2012/09/26/2703723.html">http://www.cnblogs.com/_franky/archive/2012/09/26/2703723.html</a></a></p>
 
       
     </div>
@@ -88,11 +115,17 @@
   </div>
 
         
-          <div class="alignright">
-            <a href="/2013/07/04/关于null--0/#more" class="more-link">阅读全文</a>
-          </div>
-        
-        
+  <div class="addthis addthis_toolbox addthis_default_style">
+    
+    
+    
+      <a class="addthis_button_google_plusone" g:plusone:size="medium"></a>
+    
+    
+    <a class="addthis_counter addthis_pill_style"></a>
+  </div>
+  <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js"></script>
+
       
       <div class="clearfix"></div>
     </footer>
@@ -100,115 +133,12 @@
 </article>
 
 
-  
-    <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2013-07-01T12:48:51.000Z"><a href="/2013/07/01/javascript-编码风格指南/">2013年7月1日</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2013/07/01/javascript-编码风格指南/">JavaScript 编码风格指南</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-        <p><img src="/img/maintainableJavascript.jpg" alt=""></p>
-<p>&emsp;这几天一直在读这本<a href="http://book.douban.com/subject/21792530/">《编写可维护的JavaScript》</a>
-,觉得编码风格对于一个长期维护的软件而言是非常的重要的。下面我就列举一下书中建议的一些规范(下面的写法均为推荐写法)。</p>
-<h2>缩进</h2>
-<p>每一行由四个空格组成,避免使用Tab进行缩进。</p>
-<figure class="highlight lang-javascript"><table><tr><td class="gutter"><pre>1
-2
-3
-</pre></td><td class="code"><pre><span class="keyword">if</span> (<span class="literal">true</span>) {
-    doSomething();
-}
-</pre></td></tr></table></figure>
-
-<h2>行的长度</h2>
-<p>每行不应超过80个字符。如果一行多于80个字符，应当在一个运算符后换行。下一行增加两级缩进（8个字符）</p>
-<figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
-2
-</pre></td><td class="code"><pre>doSomething(argument1, argument2, argument3, argument4,
-        argument5);
-</pre></td></tr></table></figure>
-
-<p>
-      
-    </div>
-    <footer>
-      
-        
-        
-  
-  <div class="tags">
-    <a href="/tags/javascript/">javascript</a>, <a href="/tags/编码风格/">编码风格</a>
+<section id="comment">
+  <h1 class="title">留言</h1>
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
   </div>
-
-        
-          <div class="alignright">
-            <a href="/2013/07/01/javascript-编码风格指南/#more" class="more-link">阅读全文</a>
-          </div>
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-  
-    <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2013-07-01T01:37:50.000Z"><a href="/2013/07/01/hello-world/">2013年7月1日</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2013/07/01/hello-world/">Hello World</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-        <p>Welcome to <a href="http://zespia.tw/hexo">Hexo</a>! This is your very first post. Check <a href="http://zespia.tw/hexo/docs">documentation</a> to learn how to use.</p>
-
-      
-    </div>
-    <footer>
-      
-        
-        
-  
-  <div class="tags">
-    <a href="/tags/hellp-world/">hellp world</a>
-  </div>
-
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-  
-
-  <nav id="pagination">
-  
-  
-  <div class="clearfix"></div>
-</nav>
+</section>
 </div></div>
     <aside id="sidebar" class="alignright">
   <div class="search">
@@ -254,7 +184,7 @@ var disqus_shortname = 'luoblog';
   var dsq = document.createElement('script');
   dsq.type = 'text/javascript';
   dsq.async = true;
-  dsq.src = '//' + disqus_shortname + '.disqus.com/count.js';
+  dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
   (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
 }());
 </script>
