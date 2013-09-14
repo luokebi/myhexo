@@ -19,10 +19,8 @@
     </div>
     <footer>
       <% if (index){ %>
-        <%- partial('post/category') %>
-        <%- partial('post/tag') %>
         <% if (item.excerpt){ %>
-          <div class="alignright">
+          <div class="alignleft">
             <a href="<%- config.root %><%- item.path %>#more" class="more-link"><%= theme.excerpt_link %></a>
           </div>
         <% } %>
