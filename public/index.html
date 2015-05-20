@@ -1,35 +1,32 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-  <meta name="google-site-verification" content="j-aaaSxILb3GBHidLx_oPvKK_xtIfiYE4cJRBnw2wH4" />
-  <meta name="baidu-site-verification" content="Hyfh5EEKyG" />
   <meta charset="utf-8">
   
-  <title>LUO's 博客</title>
+  <title>LUO&#39;s 博客</title>
   <meta name="author" content="luo">
   
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
   
-  <meta property="og:site_name" content="LUO's 博客"/>
+  <meta property="og:site_name" content="LUO&#39;s 博客"/>
 
   
     <meta property="og:image" content="undefined"/>
   
 
-  <link href="/favicon.ico" rel="icon">
-  <link rel="alternate" href="/atom.xml" title="LUO's 博客" type="application/atom+xml">
+  <link href="/favicon.png" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="LUO&#39;s 博客" type="application/atom+xml">
   <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
   <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
   
 </head>
 
 
 <body>
   <header id="header" class="inner"><div class="alignleft">
-  <h1><a href="/">LUO's 博客</a></h1>
+  <h1><a href="/">LUO&#39;s 博客</a></h1>
   <h2><a href="/"></a></h2>
 </div>
 <nav id="main-nav" class="alignright">
@@ -47,6 +44,18 @@
     <div id="main-col" class="alignleft"><div id="wrapper">
   <article class="post">
   
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
   <div class="post-content">
     <header>
       
@@ -61,9 +70,9 @@
     </header>
     <div class="entry">
       
-        <h2>一般jQuery插件的写法:</h2>
+        <h2 id="一般jQuery插件的写法:">一般jQuery插件的写法:</h2>
 <p>一个jQuery插件实际上就是对jQuery命名空间的扩展，我们在扩展原生JavaScript方法的时候通过在原生对象的prototype上扩展方法，比如在Array对象上扩展一个数组去重的方法，我们使用：</p>
-<figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
+<figure class="highlight js"><table><tr><td class="gutter"><pre>1
 2
 3
 4
@@ -77,7 +86,7 @@
 12
 13
 14
-</pre></td><td class="code"><pre>Array.prototype.removeDuplicates = <span class="function"><span class="keyword">function</span> <span class="params">()</span> {</span>
+</pre></td><td class="code"><pre><span class="built_in">Array</span>.prototype.removeDuplicates = <span class="function"><span class="keyword">function</span> <span class="params">()</span> {</span>
     <span class="keyword">var</span> temp = {},
         r = [],
         i,k;
@@ -94,28 +103,20 @@
 </pre></td></tr></table></figure>
 
 <p>这样我们任何一个数组都可以调用这个方法来去重：</p>
-<figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
+<figure class="highlight js"><table><tr><td class="gutter"><pre>1
 2
 </pre></td><td class="code"><pre><span class="keyword">var</span> arr = [<span class="string">"apple"</span>,<span class="string">"pair"</span>,<span class="string">"grape"</span>,<span class="string">"pair"</span>,<span class="string">"apple"</span>]
 console.log(arr.removeDuplicates()); <span class="comment">// ["apple","pair","grape"]</span>
 </pre></td></tr></table></figure>
 
-<p>而<code>jQuery.fn</code>是<code>jQuery.prototype</code>的简写，所以我们用<code>jQuery.fn.pluginName = function</code>来创造一个jQuery插件：
-
+<p>而<code>jQuery.fn</code>是<code>jQuery.prototype</code>的简写，所以我们用<code>jQuery.fn.pluginName = function</code>来创造一个jQuery插件：<br>
       
     </div>
     <footer>
       
         
-        
-  
-  <div class="tags">
-    <a href="/tags/jQuery/">jQuery</a>
-  </div>
-
-        
           <div class="alignright">
-            <a href="/2013/07/29/jquery插件学习/#more" class="more-link">阅读全文</a>
+            <a href="/2013/07/29/jquery插件学习/#more" class="more-link">阅读更多</a>
           </div>
         
         
@@ -129,45 +130,62 @@ console.log(arr.removeDuplicates()); <span class="comment">// ["apple","pair","g
 
   <article class="post">
   
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
   <div class="post-content">
     <header>
       
         <div class="icon"></div>
-        <time datetime="2013-07-04T08:49:35.000Z"><a href="/2013/07/04/关于null--0/">2013年7月4日</a></time>
+        <time datetime="2013-07-04T08:49:35.000Z"><a href="/2013/07/04/关于null-=-0/">2013年7月4日</a></time>
       
       
   
-    <h1 class="title"><a href="/2013/07/04/关于null--0/">关于null &gt;= 0</a></h1>
+    <h1 class="title"><a href="/2013/07/04/关于null-=-0/">关于null &gt;= 0</a></h1>
   
 
     </header>
     <div class="entry">
       
         <p>前两天看大神们在讨论一个问题,这个问题是这样的:</p>
-<figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
+<figure class="highlight js"><table><tr><td class="gutter"><pre>1
 2
 3
-</pre></td><td class="code"><pre><span class="literal">null</span> &gt; <span class="number">0</span><span class="comment">// false </span>
-<span class="literal">null</span> == <span class="number">0</span><span class="comment">// false </span>
-<span class="literal">null</span> &gt;= <span class="number">0</span><span class="comment">//true</span>
+</pre></td><td class="code"><pre><span class="literal">null</span> &gt; <span class="number">0</span><span class="comment">// false</span>
+<span class="literal">null</span> &gt;= <span class="number">0</span><span class="comment">//true </span>
+<span class="literal">null</span> == <span class="number">0</span><span class="comment">// false</span>
 </pre></td></tr></table></figure>
 
-<p>为什么会这样呢? <br/>
+<p>为什么会这样呢? <br/></p>
+<p>照理说</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre>1
+2
+</pre></td><td class="code"><pre><span class="literal">null</span> &gt; <span class="number">0</span> <span class="comment">//false</span>
+<span class="literal">null</span> &gt;= <span class="number">0</span> <span class="comment">// true</span>
+</pre></td></tr></table></figure>
 
+<p>应该可以推出：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre><span class="literal">null</span> == <span class="number">0</span> <span class="comment">// true (实际上并不是如此)</span>
+</pre></td></tr></table></figure>
+
+<p>
       
     </div>
     <footer>
       
         
-        
-  
-  <div class="tags">
-    <a href="/tags/javascript/">javascript</a>
-  </div>
-
-        
           <div class="alignright">
-            <a href="/2013/07/04/关于null--0/#more" class="more-link">阅读全文</a>
+            <a href="/2013/07/04/关于null-=-0/#more" class="more-link">阅读更多</a>
           </div>
         
         
@@ -180,6 +198,18 @@ console.log(arr.removeDuplicates()); <span class="comment">// ["apple","pair","g
 
 
   <article class="post">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
   
   <div class="post-content">
     <header>
@@ -196,11 +226,10 @@ console.log(arr.removeDuplicates()); <span class="comment">// ["apple","pair","g
     <div class="entry">
       
         <p><img src="/img/maintainableJavascript.jpg" alt=""></p>
-<p>&emsp;这几天一直在读这本<a href="http://book.douban.com/subject/21792530/">《编写可维护的JavaScript》</a>
-,觉得编码风格对于一个长期维护的软件而言是非常的重要的。下面我就列举一下书中建议的一些规范(下面的写法均为推荐写法)。</p>
-<h2>缩进</h2>
+<p>&emsp;这几天一直在读这本<a href="http://book.douban.com/subject/21792530/" target="_blank">《编写可维护的JavaScript》</a><br>,觉得编码风格对于一个长期维护的软件而言是非常的重要的。下面我就列举一下书中建议的一些规范(下面的写法均为推荐写法)。</p>
+<h2 id="缩进">缩进</h2>
 <p>每一行由四个空格组成,避免使用Tab进行缩进。</p>
-<figure class="highlight lang-javascript"><table><tr><td class="gutter"><pre>1
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
 2
 3
 </pre></td><td class="code"><pre><span class="keyword">if</span> (<span class="literal">true</span>) {
@@ -208,9 +237,9 @@ console.log(arr.removeDuplicates()); <span class="comment">// ["apple","pair","g
 }
 </pre></td></tr></table></figure>
 
-<h2>行的长度</h2>
+<h2 id="行的长度">行的长度</h2>
 <p>每行不应超过80个字符。如果一行多于80个字符，应当在一个运算符后换行。下一行增加两级缩进（8个字符）</p>
-<figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
+<figure class="highlight js"><table><tr><td class="gutter"><pre>1
 2
 </pre></td><td class="code"><pre>doSomething(argument1, argument2, argument3, argument4,
         argument5);
@@ -222,55 +251,9 @@ console.log(arr.removeDuplicates()); <span class="comment">// ["apple","pair","g
     <footer>
       
         
-        
-  
-  <div class="tags">
-    <a href="/tags/javascript/">javascript</a>, <a href="/tags/编码风格/">编码风格</a>
-  </div>
-
-        
           <div class="alignright">
-            <a href="/2013/07/01/javascript-编码风格指南/#more" class="more-link">阅读全文</a>
+            <a href="/2013/07/01/javascript-编码风格指南/#more" class="more-link">阅读更多</a>
           </div>
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2013-07-01T01:37:50.000Z"><a href="/2013/07/01/hello-world/">2013年7月1日</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2013/07/01/hello-world/">Hello World</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-        <p>Welcome to <a href="http://zespia.tw/hexo">Hexo</a>! This is your very first post. Check <a href="http://zespia.tw/hexo/docs">documentation</a> to learn how to use.</p>
-
-      
-    </div>
-    <footer>
-      
-        
-        
-  
-  <div class="tags">
-    <a href="/tags/hellp-world/">hellp world</a>
-  </div>
-
         
         
       
@@ -290,7 +273,7 @@ console.log(arr.removeDuplicates()); <span class="comment">// ["apple","pair","g
     <aside id="sidebar" class="alignright">
   <div class="search">
   <form action="//google.com/search" method="get" accept-charset="utf-8">
-    <input type="search" name="q" results="0" placeholder="搜索">
+    <input type="search" name="q" results="0" placeholder="Search">
     <input type="hidden" name="q" value="site:luokebi.github.io">
   </form>
 </div>
@@ -299,10 +282,8 @@ console.log(arr.removeDuplicates()); <span class="comment">// ["apple","pair","g
 
   
 <div class="widget tag">
-  <h3 class="title">标签</h3>
+  <h3 class="title">Tags</h3>
   <ul class="entry">
-  
-    <li><a href="/tags/hellp-world/">hellp world</a><small>1</small></li>
   
     <li><a href="/tags/jQuery/">jQuery</a><small>1</small></li>
   
@@ -318,11 +299,12 @@ console.log(arr.removeDuplicates()); <span class="comment">// ["apple","pair","g
   </div>
   <footer id="footer" class="inner"><div class="alignleft">
   
-  &copy; 2013 luo
+  &copy; 2014 luo
   
 </div>
 <div class="clearfix"></div></footer>
-  <script src="/js/jquery.imagesloaded.min.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
 <script src="/js/gallery.js"></script>
 
 

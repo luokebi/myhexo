@@ -1,11 +1,9 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-  <meta name="google-site-verification" content="j-aaaSxILb3GBHidLx_oPvKK_xtIfiYE4cJRBnw2wH4" />
-  <meta name="baidu-site-verification" content="Hyfh5EEKyG" />
   <meta charset="utf-8">
   
-  <title>jQuery插件学习 | LUO's 博客</title>
+  <title>jQuery插件学习 | LUO&#39;s 博客</title>
   <meta name="author" content="luo">
   
   <meta name="description" content="一般jQuery插件的写法:
@@ -53,24 +51,23 @@ console.log(arr.removeDuplicates()); // [&quot;apple&quot;,&quot;pair&quot;,&quo
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
   <meta property="og:title" content="jQuery插件学习"/>
-  <meta property="og:site_name" content="LUO's 博客"/>
+  <meta property="og:site_name" content="LUO&#39;s 博客"/>
 
   
     <meta property="og:image" content="undefined"/>
   
 
-  <link href="/favicon.ico" rel="icon">
-  <link rel="alternate" href="/atom.xml" title="LUO's 博客" type="application/atom+xml">
+  <link href="/favicon.png" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="LUO&#39;s 博客" type="application/atom+xml">
   <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
   <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
   
 </head>
 
 
 <body>
   <header id="header" class="inner"><div class="alignleft">
-  <h1><a href="/">LUO's 博客</a></h1>
+  <h1><a href="/">LUO&#39;s 博客</a></h1>
   <h2><a href="/"></a></h2>
 </div>
 <nav id="main-nav" class="alignright">
@@ -87,6 +84,18 @@ console.log(arr.removeDuplicates()); // [&quot;apple&quot;,&quot;pair&quot;,&quo
   <div id="content" class="inner">
     <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
   
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
   <div class="post-content">
     <header>
       
@@ -101,9 +110,9 @@ console.log(arr.removeDuplicates()); // [&quot;apple&quot;,&quot;pair&quot;,&quo
     </header>
     <div class="entry">
       
-        <h2>一般jQuery插件的写法:</h2>
+        <h2 id="一般jQuery插件的写法:">一般jQuery插件的写法:</h2>
 <p>一个jQuery插件实际上就是对jQuery命名空间的扩展，我们在扩展原生JavaScript方法的时候通过在原生对象的prototype上扩展方法，比如在Array对象上扩展一个数组去重的方法，我们使用：</p>
-<figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
+<figure class="highlight js"><table><tr><td class="gutter"><pre>1
 2
 3
 4
@@ -117,7 +126,7 @@ console.log(arr.removeDuplicates()); // [&quot;apple&quot;,&quot;pair&quot;,&quo
 12
 13
 14
-</pre></td><td class="code"><pre>Array.prototype.removeDuplicates = <span class="function"><span class="keyword">function</span> <span class="params">()</span> {</span>
+</pre></td><td class="code"><pre><span class="built_in">Array</span>.prototype.removeDuplicates = <span class="function"><span class="keyword">function</span> <span class="params">()</span> {</span>
     <span class="keyword">var</span> temp = {},
         r = [],
         i,k;
@@ -134,15 +143,14 @@ console.log(arr.removeDuplicates()); // [&quot;apple&quot;,&quot;pair&quot;,&quo
 </pre></td></tr></table></figure>
 
 <p>这样我们任何一个数组都可以调用这个方法来去重：</p>
-<figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
+<figure class="highlight js"><table><tr><td class="gutter"><pre>1
 2
 </pre></td><td class="code"><pre><span class="keyword">var</span> arr = [<span class="string">"apple"</span>,<span class="string">"pair"</span>,<span class="string">"grape"</span>,<span class="string">"pair"</span>,<span class="string">"apple"</span>]
 console.log(arr.removeDuplicates()); <span class="comment">// ["apple","pair","grape"]</span>
 </pre></td></tr></table></figure>
 
-<p>而<code>jQuery.fn</code>是<code>jQuery.prototype</code>的简写，所以我们用<code>jQuery.fn.pluginName = function</code>来创造一个jQuery插件：
-<a name="more"></a></p>
-<figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
+<p>而<code>jQuery.fn</code>是<code>jQuery.prototype</code>的简写，所以我们用<code>jQuery.fn.pluginName = function</code>来创造一个jQuery插件：<br><a id="more"></a></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre>1
 2
 3
 4
@@ -161,13 +169,13 @@ console.log(arr.removeDuplicates()); <span class="comment">// ["apple","pair","g
 17
 18
 </pre></td><td class="code"><pre><span class="comment">// 基本jQuery插件形式1</span>
-<span class="keyword">function</span>($) {
+<span class="function"><span class="keyword">function</span><span class="params">($)</span> {</span>
  
     <span class="comment">// 向jQuery中被保护的“fn”命名空间中添加你的插件代码，用“pluginName”作为插件的函数名称</span>
-    $.fn.pluginName = <span class="keyword">function</span>() {
+    $.fn.pluginName = <span class="function"><span class="keyword">function</span><span class="params">()</span> {</span>
  
         <span class="comment">// 返回“this”（函数each（）的返回值也是this），以便进行链式调用。</span>
-        <span class="keyword">return</span> <span class="keyword">this</span>.each(<span class="keyword">function</span>() {
+        <span class="keyword">return</span> <span class="keyword">this</span>.each(<span class="function"><span class="keyword">function</span><span class="params">()</span> {</span>
  
             <span class="comment">// 此处运行代码，可以通过“this”来获得每个单独的元素</span>
             <span class="comment">// 例如： $(this).show()；</span>
@@ -181,7 +189,7 @@ console.log(arr.removeDuplicates()); <span class="comment">// ["apple","pair","g
 </pre></td></tr></table></figure>
 
 <p>除了这种，可以借助extend:</p>
-<figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
+<figure class="highlight js"><table><tr><td class="gutter"><pre>1
 2
 3
 4
@@ -199,13 +207,13 @@ console.log(arr.removeDuplicates()); <span class="comment">// ["apple","pair","g
 16
 17
 </pre></td><td class="code"><pre><span class="comment">// 基本jQuery插件形式2</span>
-<span class="keyword">function</span>($) {
+<span class="function"><span class="keyword">function</span><span class="params">($)</span> {</span>
  
     $.fn.extend({
  
-        pluginNmae:<span class="keyword">function</span>() {
+        pluginNmae:<span class="function"><span class="keyword">function</span><span class="params">()</span> {</span>
  
-          <span class="keyword">return</span> <span class="keyword">this</span>.each(<span class="keyword">function</span>() {
+          <span class="keyword">return</span> <span class="keyword">this</span>.each(<span class="function"><span class="keyword">function</span><span class="params">()</span> {</span>
  
               <span class="keyword">var</span> $<span class="keyword">this</span> = $(<span class="keyword">this</span>);
  
@@ -218,13 +226,13 @@ console.log(arr.removeDuplicates()); <span class="comment">// ["apple","pair","g
 </pre></td></tr></table></figure>
 
 <p>这样我们就可以使用jQuery插件了：</p>
-<figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
+<figure class="highlight js"><table><tr><td class="gutter"><pre>1
 </pre></td><td class="code"><pre>$(<span class="string">'selector'</span>).pluginName();
 </pre></td></tr></table></figure>
 
-<h2>传入配置：</h2>
+<h2 id="传入配置：">传入配置：</h2>
 <p>很多时候我们需要自定义我们使用的插件，如颜色，位置等，来控制插件的行为。所以我们需要传入一个配置对象,当然我们也需要一个默认的配置：</p>
-<figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
+<figure class="highlight js"><table><tr><td class="gutter"><pre>1
 2
 3
 4
@@ -245,16 +253,16 @@ console.log(arr.removeDuplicates()); <span class="comment">// ["apple","pair","g
 19
 20
 </pre></td><td class="code"><pre><span class="comment">// 带配置jquery插件</span>
-<span class="keyword">function</span>($) {
+<span class="function"><span class="keyword">function</span><span class="params">($)</span> {</span>
 
     <span class="keyword">var</span> defualtOption = {
         propertyName1: <span class="string">'value'</span>,
         propertyName2: <span class="string">"value2"</span>
     };
  
-    $.fn.pluginName = <span class="keyword">function</span>(option) {
+    $.fn.pluginName = <span class="function"><span class="keyword">function</span><span class="params">(option)</span> {</span>
 
-        <span class="keyword">return</span> <span class="keyword">this</span>.each(<span class="keyword">function</span>() {
+        <span class="keyword">return</span> <span class="keyword">this</span>.each(<span class="function"><span class="keyword">function</span><span class="params">()</span> {</span>
             <span class="keyword">var</span> $<span class="keyword">this</span> = $(<span class="keyword">this</span>);
             <span class="keyword">var</span> option = $.extend({},defaultOption,option || {});
             <span class="comment">// code here</span>
@@ -266,12 +274,11 @@ console.log(arr.removeDuplicates()); <span class="comment">// ["apple","pair","g
 })(jQuery);
 </pre></td></tr></table></figure>
 
-<p>这样就是实现了传入配置。这里可以看到我们把<code>var defaultOption = {...}</code>写在了<code>$.fn.puginName = function(){}</code>的外面，这是为了让插件更高效，节约内存，把一次性的代码放在主循环之外。想了解更多关于jquery插件的优化可以看看这篇文章<a href="http://www.websanova.com/blog/jquery/10-coding-tips-to-write-superior-jquery-plugins#.Ufe-WY0ybEI">10 Coding Tips to Write Superior jQuery Plugins</a>。</p>
-<h2>有公有方法和私有方法的写法:</h2>
-<p>有些时候我们需要一些函数被插件外的代码调用；一些函数却不能让外部的代码可以访问。这也就是我们说的公有方法和私有方法。
-一般我们在插件中定义的函数外部都是访问不了的，所以我们要将一些暴露出去。实现这个这里有两种方法：</p>
+<p>这样就是实现了传入配置。这里可以看到我们把<code>var defaultOption = {...}</code>写在了<code>$.fn.puginName = function(){}</code>的外面，这是为了让插件更高效，节约内存，把一次性的代码放在主循环之外。想了解更多关于jquery插件的优化可以看看这篇文章<a href="http://www.websanova.com/blog/jquery/10-coding-tips-to-write-superior-jquery-plugins#.Ufe-WY0ybEI" target="_blank">10 Coding Tips to Write Superior jQuery Plugins</a>。</p>
+<h2 id="有公有方法和私有方法的写法:">有公有方法和私有方法的写法:</h2>
+<p>有些时候我们需要一些函数被插件外的代码调用；一些函数却不能让外部的代码可以访问。这也就是我们说的公有方法和私有方法。<br>一般我们在插件中定义的函数外部都是访问不了的，所以我们要将一些暴露出去。实现这个这里有两种方法：</p>
 <p>方法一：我们用一个对象来存储公有函数：</p>
-<figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
+<figure class="highlight js"><table><tr><td class="gutter"><pre>1
 2
 3
 4
@@ -331,18 +338,18 @@ console.log(arr.removeDuplicates()); <span class="comment">// ["apple","pair","g
 58
 59
 </pre></td><td class="code"><pre><span class="comment">// 包含公有方法和私有方法1</span>
-(<span class="keyword">function</span>($) {
+(<span class="function"><span class="keyword">function</span><span class="params">($)</span> {</span>
  
-    <span class="keyword">var</span> privateFunction = <span class="keyword">function</span>() {
+    <span class="keyword">var</span> privateFunction = <span class="function"><span class="keyword">function</span><span class="params">()</span> {</span>
         <span class="comment">// code here</span>
     }
  
     <span class="comment">// 通过字面量创造一个对象，存储我们需要的共有方法</span>
     <span class="keyword">var</span> methods = {
         <span class="comment">// 在字面量对象中定义每个单独的方法</span>
-        init: <span class="keyword">function</span>() {
+        init: <span class="function"><span class="keyword">function</span><span class="params">()</span> {</span>
  
-            <span class="keyword">return</span> <span class="keyword">this</span>.each(<span class="keyword">function</span>() {
+            <span class="keyword">return</span> <span class="keyword">this</span>.each(<span class="function"><span class="keyword">function</span><span class="params">()</span> {</span>
             
                 <span class="keyword">var</span> $<span class="keyword">this</span> = $(<span class="keyword">this</span>);
  
@@ -352,17 +359,17 @@ console.log(arr.removeDuplicates()); <span class="comment">// ["apple","pair","g
             });
         },
        
-        publicFunction1: <span class="keyword">function</span>() {
+        publicFunction1: <span class="function"><span class="keyword">function</span><span class="params">()</span> {</span>
          <span class="comment">// code here</span>
         },
         
-        publicFunction2: <span class="keyword">function</span>() {
+        publicFunction2: <span class="function"><span class="keyword">function</span><span class="params">()</span> {</span>
           <span class="comment">// code here</span>
         }
     };
  
-    $.fn.pluginName = <span class="keyword">function</span>() {
-        <span class="keyword">var</span> method = arguments[<span class="number">0</span>];
+    $.fn.pluginName = <span class="function"><span class="keyword">function</span><span class="params">()</span> {</span>
+        <span class="keyword">var</span> method = <span class="built_in">arguments</span>[<span class="number">0</span>];
  
         <span class="comment">// 检验方法是否存在</span>
         <span class="keyword">if</span>(methods[method]) {
@@ -392,7 +399,7 @@ console.log(arr.removeDuplicates()); <span class="comment">// ["apple","pair","g
 </pre></td></tr></table></figure>
 
 <p>这样我们就可以调用插件以及公有方法：</p>
-<figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
+<figure class="highlight js"><table><tr><td class="gutter"><pre>1
 2
 3
 </pre></td><td class="code"><pre>$(<span class="string">'selector'</span>).pluginName(); <span class="comment">// 将会执行method.init()</span>
@@ -401,7 +408,7 @@ $(<span class="string">'selector'</span>).pluginName(<span class="string">'publi
 </pre></td></tr></table></figure>
 
 <p>方法二：在javascript中所有都是对象，函数也是一个对象，所以可以直接把公有函数直接写在<code>$.fn.pluginName</code>上：</p>
-<figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
+<figure class="highlight js"><table><tr><td class="gutter"><pre>1
 2
 3
 4
@@ -428,15 +435,15 @@ $(<span class="string">'selector'</span>).pluginName(<span class="string">'publi
 25
 26
 27
-</pre></td><td class="code"><pre>(<span class="keyword">function</span>($){
+</pre></td><td class="code"><pre>(<span class="function"><span class="keyword">function</span><span class="params">($)</span>{</span>
   <span class="comment">// 在我们插件容器内，创造一个公共变量来构建一个私有方法</span>
-    <span class="keyword">var</span> privateFunction = <span class="keyword">function</span>() {
+    <span class="keyword">var</span> privateFunction = <span class="function"><span class="keyword">function</span><span class="params">()</span> {</span>
         <span class="comment">// code here</span>
     }
     
-    $.fn.pluginName = <span class="keyword">function</span>() {
+    $.fn.pluginName = <span class="function"><span class="keyword">function</span><span class="params">()</span> {</span>
       
-      <span class="keyword">return</span> <span class="keyword">this</span>.each(<span class="keyword">function</span>(){
+      <span class="keyword">return</span> <span class="keyword">this</span>.each(<span class="function"><span class="keyword">function</span><span class="params">()</span>{</span>
         <span class="keyword">var</span> $<span class="keyword">this</span> = $(<span class="keyword">this</span>);
         <span class="comment">// code here</span>
         <span class="comment">// for example: privateFunction();</span>
@@ -446,11 +453,11 @@ $(<span class="string">'selector'</span>).pluginName(<span class="string">'publi
     }
     
     <span class="comment">//public methods</span>
-    $.fn.pluginName.publicFunction1 = <span class="keyword">function</span>() {
+    $.fn.pluginName.publicFunction1 = <span class="function"><span class="keyword">function</span><span class="params">()</span> {</span>
       <span class="comment">// code here</span>
     };
     
-    $.fn.pluginName.publickFunction2 = <span class="keyword">function</span>() {
+    $.fn.pluginName.publickFunction2 = <span class="function"><span class="keyword">function</span><span class="params">()</span> {</span>
       <span class="comment">// code here</span>
     };
  
@@ -458,7 +465,7 @@ $(<span class="string">'selector'</span>).pluginName(<span class="string">'publi
 </pre></td></tr></table></figure>
 
 <p>在这里我们这样来调用公共方法：</p>
-<figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
+<figure class="highlight js"><table><tr><td class="gutter"><pre>1
 2
 </pre></td><td class="code"><pre>$(<span class="string">'selector'</span>).pluginName.publicFunction1(); <span class="comment">// 将会执行公共方法1</span>
 $(<span class="string">'selector'</span>).pluginName.publicFunction2(); <span class="comment">// 将会执行公共方法2</span>
@@ -479,10 +486,16 @@ $(<span class="string">'selector'</span>).pluginName.publicFunction2(); <span cl
         
   <div class="addthis addthis_toolbox addthis_default_style">
     
+      <a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
+    
+    
+      <a class="addthis_button_tweet"></a>
     
     
       <a class="addthis_button_google_plusone" g:plusone:size="medium"></a>
     
+    
+      <a class="addthis_button_pinterest_pinit" pi:pinit:layout="horizontal"></a>
     
     <a class="addthis_counter addthis_pill_style"></a>
   </div>
@@ -496,7 +509,7 @@ $(<span class="string">'selector'</span>).pluginName.publicFunction2(); <span cl
 
 
 <section id="comment">
-  <h1 class="title">留言</h1>
+  <h1 class="title">Comments</h1>
   <div id="disqus_thread">
     <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
   </div>
@@ -505,7 +518,7 @@ $(<span class="string">'selector'</span>).pluginName.publicFunction2(); <span cl
     <aside id="sidebar" class="alignright">
   <div class="search">
   <form action="//google.com/search" method="get" accept-charset="utf-8">
-    <input type="search" name="q" results="0" placeholder="搜索">
+    <input type="search" name="q" results="0" placeholder="Search">
     <input type="hidden" name="q" value="site:luokebi.github.io">
   </form>
 </div>
@@ -514,10 +527,8 @@ $(<span class="string">'selector'</span>).pluginName.publicFunction2(); <span cl
 
   
 <div class="widget tag">
-  <h3 class="title">标签</h3>
+  <h3 class="title">Tags</h3>
   <ul class="entry">
-  
-    <li><a href="/tags/hellp-world/">hellp world</a><small>1</small></li>
   
     <li><a href="/tags/jQuery/">jQuery</a><small>1</small></li>
   
@@ -533,11 +544,12 @@ $(<span class="string">'selector'</span>).pluginName.publicFunction2(); <span cl
   </div>
   <footer id="footer" class="inner"><div class="alignleft">
   
-  &copy; 2013 luo
+  &copy; 2014 luo
   
 </div>
 <div class="clearfix"></div></footer>
-  <script src="/js/jquery.imagesloaded.min.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
 <script src="/js/gallery.js"></script>
 
 

@@ -1,35 +1,32 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-  <meta name="google-site-verification" content="j-aaaSxILb3GBHidLx_oPvKK_xtIfiYE4cJRBnw2wH4" />
-  <meta name="baidu-site-verification" content="Hyfh5EEKyG" />
   <meta charset="utf-8">
   
-  <title>jQuery | LUO's 博客</title>
+  <title>jQuery | LUO&#39;s 博客</title>
   <meta name="author" content="luo">
   
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
   
-  <meta property="og:site_name" content="LUO's 博客"/>
+  <meta property="og:site_name" content="LUO&#39;s 博客"/>
 
   
     <meta property="og:image" content="undefined"/>
   
 
-  <link href="/favicon.ico" rel="icon">
-  <link rel="alternate" href="/atom.xml" title="LUO's 博客" type="application/atom+xml">
+  <link href="/favicon.png" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="LUO&#39;s 博客" type="application/atom+xml">
   <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
   <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
   
 </head>
 
 
 <body>
   <header id="header" class="inner"><div class="alignleft">
-  <h1><a href="/">LUO's 博客</a></h1>
+  <h1><a href="/">LUO&#39;s 博客</a></h1>
   <h2><a href="/"></a></h2>
 </div>
 <nav id="main-nav" class="alignright">
@@ -51,6 +48,18 @@
   
     <article class="post">
   
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
   <div class="post-content">
     <header>
       
@@ -65,9 +74,9 @@
     </header>
     <div class="entry">
       
-        <h2>一般jQuery插件的写法:</h2>
+        <h2 id="一般jQuery插件的写法:">一般jQuery插件的写法:</h2>
 <p>一个jQuery插件实际上就是对jQuery命名空间的扩展，我们在扩展原生JavaScript方法的时候通过在原生对象的prototype上扩展方法，比如在Array对象上扩展一个数组去重的方法，我们使用：</p>
-<figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
+<figure class="highlight js"><table><tr><td class="gutter"><pre>1
 2
 3
 4
@@ -81,7 +90,7 @@
 12
 13
 14
-</pre></td><td class="code"><pre>Array.prototype.removeDuplicates = <span class="function"><span class="keyword">function</span> <span class="params">()</span> {</span>
+</pre></td><td class="code"><pre><span class="built_in">Array</span>.prototype.removeDuplicates = <span class="function"><span class="keyword">function</span> <span class="params">()</span> {</span>
     <span class="keyword">var</span> temp = {},
         r = [],
         i,k;
@@ -98,28 +107,20 @@
 </pre></td></tr></table></figure>
 
 <p>这样我们任何一个数组都可以调用这个方法来去重：</p>
-<figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
+<figure class="highlight js"><table><tr><td class="gutter"><pre>1
 2
 </pre></td><td class="code"><pre><span class="keyword">var</span> arr = [<span class="string">"apple"</span>,<span class="string">"pair"</span>,<span class="string">"grape"</span>,<span class="string">"pair"</span>,<span class="string">"apple"</span>]
 console.log(arr.removeDuplicates()); <span class="comment">// ["apple","pair","grape"]</span>
 </pre></td></tr></table></figure>
 
-<p>而<code>jQuery.fn</code>是<code>jQuery.prototype</code>的简写，所以我们用<code>jQuery.fn.pluginName = function</code>来创造一个jQuery插件：
-
+<p>而<code>jQuery.fn</code>是<code>jQuery.prototype</code>的简写，所以我们用<code>jQuery.fn.pluginName = function</code>来创造一个jQuery插件：<br>
       
     </div>
     <footer>
       
         
-        
-  
-  <div class="tags">
-    <a href="/tags/jQuery/">jQuery</a>
-  </div>
-
-        
           <div class="alignright">
-            <a href="/2013/07/29/jquery插件学习/#more" class="more-link">阅读全文</a>
+            <a href="/2013/07/29/jquery插件学习/#more" class="more-link">阅读更多</a>
           </div>
         
         
@@ -141,7 +142,7 @@ console.log(arr.removeDuplicates()); <span class="comment">// ["apple","pair","g
     <aside id="sidebar" class="alignright">
   <div class="search">
   <form action="//google.com/search" method="get" accept-charset="utf-8">
-    <input type="search" name="q" results="0" placeholder="搜索">
+    <input type="search" name="q" results="0" placeholder="Search">
     <input type="hidden" name="q" value="site:luokebi.github.io">
   </form>
 </div>
@@ -150,10 +151,8 @@ console.log(arr.removeDuplicates()); <span class="comment">// ["apple","pair","g
 
   
 <div class="widget tag">
-  <h3 class="title">标签</h3>
+  <h3 class="title">Tags</h3>
   <ul class="entry">
-  
-    <li><a href="/tags/hellp-world/">hellp world</a><small>1</small></li>
   
     <li><a href="/tags/jQuery/">jQuery</a><small>1</small></li>
   
@@ -169,11 +168,12 @@ console.log(arr.removeDuplicates()); <span class="comment">// ["apple","pair","g
   </div>
   <footer id="footer" class="inner"><div class="alignleft">
   
-  &copy; 2013 luo
+  &copy; 2014 luo
   
 </div>
 <div class="clearfix"></div></footer>
-  <script src="/js/jquery.imagesloaded.min.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
 <script src="/js/gallery.js"></script>
 
 
